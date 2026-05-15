@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오션중학교 | 사회 & 코딩 선생님</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    },
+                    colors: {
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#0ea5e9 0.5px, transparent 0.5px), radial-gradient(#0ea5e9 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-slate-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo & Brand -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 overflow-hidden rounded-lg bg-white shadow-sm border border-ocean-100 flex items-center justify-center">
+                        <img src="./images/logo.png" alt="오션정보교실 로고" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/40?text=O'">
+                    </div>
+                    <span class="text-xl font-black text-ocean-900 tracking-tight group-hover:text-ocean-600 transition">
+                        오션정보교실
+                    </span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="flex space-x-6">
+                        <a href="#about" class="text-gray-600 hover:text-ocean-600 font-medium transition text-sm lg:text-base">소개</a>
+                        <a href="#social" class="text-gray-600 hover:text-ocean-600 font-medium transition text-sm lg:text-base">사회교과</a>
+                        <a href="#coding" class="text-gray-600 hover:text-ocean-600 font-medium transition text-sm lg:text-base">코딩동아리</a>
+                        <a href="#contact" class="text-gray-600 hover:text-ocean-600 font-medium transition text-sm lg:text-base">소통공간</a>
+                    </div>
+                    <!-- Question Button -->
+                    <a href="#contact" class="px-5 py-2.5 bg-ocean-600 text-white rounded-full font-bold hover:bg-ocean-700 transition shadow-md shadow-ocean-500/20 flex items-center gap-2 text-sm">
+                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                        질문하기
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center gap-3">
+                    <a href="#contact" class="px-3 py-1.5 bg-ocean-600 text-white rounded-full font-bold text-xs">
+                        질문하기
+                    </a>
+                    <button class="text-gray-600" id="mobile-menu-btn">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div class="md:hidden hidden bg-white shadow-xl border-t border-gray-100 absolute w-full" id="mobile-menu">
+            <div class="flex flex-col px-6 py-4 space-y-3 font-medium">
+                <a href="#about" class="text-gray-600 hover:text-ocean-600 py-2 border-b border-gray-50">소개</a>
+                <a href="#social" class="text-gray-600 hover:text-ocean-600 py-2 border-b border-gray-50">사회교과</a>
+                <a href="#coding" class="text-gray-600 hover:text-ocean-600 py-2 border-b border-gray-50">코딩동아리</a>
+                <a href="#contact" class="text-gray-600 hover:text-ocean-600 py-2">소통공간</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-gradient-to-br from-ocean-50 via-white to-ocean-100">
+        <div class="absolute inset-0 hero-pattern"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1 text-center md:text-left fade-in">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-ocean-100 text-ocean-700 font-medium text-sm mb-6 border border-ocean-200">
+                        오션중학교 정보교실에 오신 것을 환영합니다! 👋
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-6">
+                        세상을 이해하는 <span class="text-ocean-600">눈</span>,<br>
+                        미래를 만드는 <span class="text-ocean-600">손</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto md:mx-0 leading-relaxed">
+                        안녕하세요! 오션중학교 학생들과 함께 즐거운 사회를 탐구하고, 
+                        마이크로비트와 AI로 재미있는 코딩 세상을 만들어가는 선생님입니다.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#social" class="px-8 py-4 bg-ocean-600 text-white rounded-xl font-bold hover:bg-ocean-700 transition shadow-lg shadow-ocean-500/30 flex items-center justify-center gap-2">
+                            <i data-lucide="globe"></i> 사회 수업 안내
+                        </a>
+                        <a href="#coding" class="px-8 py-4 bg-white text-ocean-700 border-2 border-ocean-100 rounded-xl font-bold hover:border-ocean-300 hover:bg-ocean-50 transition flex items-center justify-center gap-2">
+                            <i data-lucide="cpu"></i> 코딩 동아리
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-1 w-full max-w-md fade-in" style="transition-delay: 0.2s;">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-ocean-400 to-teal-300 rounded-3xl transform rotate-3 scale-105 opacity-50 blur-lg"></div>
+                        <div class="relative bg-white p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col items-center">
+                            <div class="w-32 h-32 bg-ocean-100 rounded-full mb-6 flex items-center justify-center overflow-hidden">
+                                <i data-lucide="user" class="w-16 h-16 text-ocean-500"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">OOO 선생님</h3>
+                            <p class="text-gray-500 text-center mb-4">오션중학교 사회교사<br>융합 코딩 동아리 지도교사</p>
+                            <div class="w-full h-px bg-gray-100 my-4"></div>
+                            <p class="text-sm text-gray-600 text-center italic">
+                                "사회 문제를 공감하고,<br>기술로 해결책을 찾아갑니다."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Philosophy -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 text-center fade-in">
+            <h2 class="text-3xl font-bold mb-4">왜 사회교사가 코딩을 가르칠까요?</h2>
+            <div class="w-20 h-1 bg-ocean-500 mx-auto mb-10 rounded-full"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-50 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="search" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">1. 사회 현상 탐구</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        사회 시간에 배운 기후변화, 인구 문제, 지역 사회의 어려움 등 다양한 사회 현상에 공감하고 이해합니다.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="lightbulb" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">2. 아이디어 발상</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        우리가 발견한 사회 문제를 해결하기 위해 어떤 도구가 필요할지, AI와 코딩 기술을 어떻게 활용할지 고민합니다.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 hover:shadow-md transition">
+                    <div class="w-14 h-14 bg-ocean-100 text-ocean-600 rounded-xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="wrench" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3. 메이커 실천</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        마이크로비트와 블록 코딩을 활용하여 실제로 작동하는 프로토타입을 만들며 체인지메이커로 성장합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Studies Section -->
+    <section id="social" class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12 fade-in">
+                <div class="flex-1">
+                    <div class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">정규 교과</div>
+                    <h2 class="text-3xl font-bold mb-6">재미있는 중학교 사회 수업</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        단순한 암기가 아닌, 우리가 살아가는 세상을 이해하는 시간! 지리, 역사, 일반사회 등 다양한 영역을 넘나들며 세상을 보는 넓은 시야를 기릅니다.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-blue-500 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-800">토론 및 프로젝트 중심 수업</strong>
+                                <span class="text-gray-600 text-sm">친구들과 함께 사회 문제에 대해 토론하고 해결책을 찾아봅니다.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="text-blue-500 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-800">생활 밀착형 사회</strong>
+                                <span class="text-gray-600 text-sm">뉴스 속 이야기, 우리 동네(오션중학교 주변)의 이슈를 수업으로 가져옵니다.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 relative">
+                    <div class="aspect-video bg-gray-200 rounded-2xl overflow-hidden shadow-lg relative flex items-center justify-center text-gray-400 border border-gray-100">
+                        <i data-lucide="map" class="w-20 h-20 opacity-20 absolute"></i>
+                        <span class="relative z-10 font-medium text-gray-500">활기찬 사회 수업 현장 사진</span>
+                        <div class="absolute inset-0 bg-blue-500/10"></div>
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3 border border-gray-100 animate-bounce" style="animation-duration: 3s;">
+                        <div class="bg-yellow-100 p-2 rounded-full"><i data-lucide="compass" class="text-yellow-600"></i></div>
+                        <div>
+                            <p class="text-xs text-gray-500">수업 목표</p>
+                            <p class="text-sm font-bold text-gray-800">민주시민 양성</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coding Club Section -->
+    <section id="coding" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 fade-in">
+                <div class="flex-1">
+                    <div class="bg-ocean-100 text-ocean-700 px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">창의적 체험활동</div>
+                    <h2 class="text-3xl font-bold mb-6">메이커스 코딩 & AI 동아리</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        초보자도 쉽고 재밌게! 피지컬 컴퓨팅 교구인 마이크로비트(Micro:bit)와 블록코딩을 활용하여 내 아이디어를 실제로 구현해 보는 메이커 동아리입니다.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="border border-gray-100 p-4 rounded-xl bg-slate-50">
+                            <i data-lucide="blocks" class="text-ocean-500 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">블록 코딩</h4>
+                            <p class="text-xs text-gray-500 mt-1">엔트리, MakeCode를 활용한 쉬운 접근</p>
+                        </div>
+                        <div class="border border-gray-100 p-4 rounded-xl bg-slate-50">
+                            <i data-lucide="cpu" class="text-ocean-500 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">마이크로비트</h4>
+                            <p class="text-xs text-gray-500 mt-1">센서를 활용한 피지컬 컴퓨팅</p>
+                        </div>
+                        <div class="border border-gray-100 p-4 rounded-xl bg-slate-50">
+                            <i data-lucide="bot" class="text-ocean-500 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">AI 교육</h4>
+                            <p class="text-xs text-gray-500 mt-1">인공지능 모델 학습 및 활용</p>
+                        </div>
+                        <div class="border border-gray-100 p-4 rounded-xl bg-slate-50">
+                            <i data-lucide="heart-handshake" class="text-ocean-500 mb-2"></i>
+                            <h4 class="font-bold text-gray-800">소셜 임팩트</h4>
+                            <p class="text-xs text-gray-500 mt-1">사회 문제 해결 프로젝트</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 relative">
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="aspect-square bg-ocean-50 rounded-2xl overflow-hidden shadow-md flex flex-col items-center justify-center p-6 transition hover:scale-105">
+                            <i data-lucide="code-2" class="w-10 h-10 text-ocean-400 mb-3"></i>
+                            <span class="font-bold text-ocean-800 text-sm md:text-base leading-tight">스마트 휴지통<br>만들기</span>
+                            <span class="text-[10px] text-ocean-600 mt-2">환경 문제 해결</span>
+                        </div>
+                        <div class="aspect-square bg-teal-50 rounded-2xl overflow-hidden shadow-md flex flex-col items-center justify-center p-6 transform translate-y-6 transition hover:scale-105">
+                            <i data-lucide="thermometer" class="w-10 h-10 text-teal-400 mb-3"></i>
+                            <span class="font-bold text-teal-800 text-sm md:text-base leading-tight">교실 온도<br>지킴이</span>
+                            <span class="text-[10px] text-teal-600 mt-2">에너지 절약</span>
+                        </div>
+                        <div class="aspect-square bg-indigo-50 rounded-2xl overflow-hidden shadow-md flex flex-col items-center justify-center p-6 transition hover:scale-105">
+                            <i data-lucide="camera" class="w-10 h-10 text-indigo-400 mb-3"></i>
+                            <span class="font-bold text-indigo-800 text-sm md:text-base leading-tight">AI 분리수거<br>로봇</span>
+                            <span class="text-[10px] text-indigo-600 mt-2">머신러닝 활용</span>
+                        </div>
+                        <div class="aspect-square bg-purple-50 rounded-2xl overflow-hidden shadow-md flex flex-col items-center justify-center p-6 transform translate-y-6 transition hover:scale-105">
+                            <i data-lucide="bell-ring" class="w-10 h-10 text-purple-400 mb-3"></i>
+                            <span class="font-bold text-purple-800 text-sm md:text-base leading-tight">독거노인<br>알리미</span>
+                            <span class="text-[10px] text-purple-600 mt-2">복지 문제 해결</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notice / Contact Section -->
+    <section id="contact" class="py-20 bg-ocean-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in">
+            <h2 class="text-3xl font-bold mb-4">선생님과 소통하기</h2>
+            <p class="text-ocean-200 mb-10">질문이 있거나, 동아리 지원을 원한다면 언제든 환영해요!</p>
+            
+            <div class="bg-ocean-800 rounded-2xl p-8 border border-ocean-700 shadow-2xl">
+                <div class="grid grid-cols-2 gap-4 md:flex md:justify-center md:gap-12 mb-10">
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-ocean-700 flex items-center justify-center">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <span class="text-xs text-ocean-300">교무실 위치</span>
+                        <strong class="font-medium">2층 제2교무실</strong>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-12 h-12 rounded-full bg-ocean-700 flex items-center justify-center">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <span class="text-xs text-ocean-300">온라인 문의</span>
+                        <strong class="font-medium">e-학습터 쪽지</strong>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 col-span-2 md:col-span-1">
+                        <div class="w-12 h-12 rounded-full bg-ocean-700 flex items-center justify-center">
+                            <i data-lucide="calendar"></i>
+                        </div>
+                        <span class="text-xs text-ocean-300">상담 시간</span>
+                        <strong class="font-medium">점심시간 & 방과후</strong>
+                    </div>
+                </div>
+
+                <div class="bg-ocean-900/50 rounded-xl p-6 text-left">
+                    <h4 class="font-bold text-lg mb-4 flex items-center gap-2 text-yellow-400">
+                        <i data-lucide="megaphone" class="w-5 h-5"></i> 공지사항
+                    </h4>
+                    <ul class="space-y-4">
+                        <li class="flex justify-between items-center border-b border-ocean-700/50 pb-3">
+                            <span class="text-ocean-100 hover:text-white cursor-pointer transition flex items-center gap-2">
+                                <span class="w-1 h-1 bg-ocean-500 rounded-full"></span> 📢 1학기 사회 수행평가 일정표
+                            </span>
+                            <span class="text-xs text-ocean-400">2026.05.10</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b border-ocean-700/50 pb-3">
+                            <span class="text-ocean-100 hover:text-white cursor-pointer transition flex items-center gap-2">
+                                <span class="w-1 h-1 bg-ocean-500 rounded-full"></span> 🚀 코딩 동아리 '메이커스' 상시 모집
+                            </span>
+                            <span class="text-xs text-ocean-400">2026.03.02</span>
+                        </li>
+                        <li class="flex justify-between items-center pb-1">
+                            <span class="text-ocean-100 hover:text-white cursor-pointer transition flex items-center gap-2">
+                                <span class="w-1 h-1 bg-ocean-500 rounded-full"></span> 💡 마이크로비트 기초 가이드 배포
+                            </span>
+                            <span class="text-xs text-ocean-400">2026.03.15</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-center gap-3 mb-4">
+                <div class="w-8 h-8 rounded bg-white/10 p-1">
+                    <img src="./images/logo.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'">
+                </div>
+                <span class="font-bold text-gray-200 text-xl tracking-tight">오션정보교실</span>
+            </div>
+            <p class="mb-1">부산광역시 오션중학교 | 사회과 & 정보/AI 동아리 지도교사 OOO</p>
+            <p class="text-gray-600">© 2026 Ocean Middle School Social & Coding. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('bg-white/95', 'shadow-md', 'backdrop-blur-md');
+                nav.classList.remove('bg-transparent');
+            } else {
+                nav.classList.remove('bg-white/95', 'shadow-md', 'backdrop-blur-md');
+                nav.classList.add('bg-transparent');
+            }
+        });
+
+        // Scroll Animation (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
