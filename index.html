@@ -56,11 +56,11 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-3">
-                <!-- Logo Only Area -->
+            <div class="flex justify-between items-center py-2 md:py-3">
+                <!-- Large Logo Only Area -->
                 <a href="#" class="flex items-center group">
-                    <div class="h-12 md:h-14 overflow-hidden flex items-center justify-center">
-                        <img src="./images/logo.png" alt="오션정보교실 로고" class="h-full w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='https://via.placeholder.com/180x60?text=OCEAN+LOGO'">
+                    <div class="h-14 md:h-20 lg:h-24 overflow-hidden flex items-center justify-center">
+                        <img src="./images/logo.png" alt="오션정보교실 로고" class="h-full w-auto object-contain transition-transform group-hover:scale-105" onerror="this.src='https://via.placeholder.com/300x100?text=OCEAN+MIDDLE+SCHOOL'">
                     </div>
                 </a>
 
@@ -73,26 +73,26 @@
                         <a href="#contact" class="text-gray-600 hover:text-ocean-600 font-medium transition text-sm lg:text-base">소통공간</a>
                     </div>
                     <!-- Question Button -->
-                    <a href="#contact" class="px-5 py-2.5 bg-ocean-600 text-white rounded-full font-bold hover:bg-ocean-700 transition shadow-md shadow-ocean-500/20 flex items-center gap-2 text-sm">
-                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <a href="#contact" class="px-6 py-3 bg-ocean-600 text-white rounded-full font-bold hover:bg-ocean-700 transition shadow-lg shadow-ocean-500/20 flex items-center gap-2 text-sm lg:text-base">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
                         질문하기
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center gap-3">
-                    <a href="#contact" class="px-3 py-1.5 bg-ocean-600 text-white rounded-full font-bold text-xs">
+                    <a href="#contact" class="px-4 py-2 bg-ocean-600 text-white rounded-full font-bold text-sm shadow-md">
                         질문하기
                     </a>
-                    <button class="text-gray-600" id="mobile-menu-btn">
-                        <i data-lucide="menu"></i>
+                    <button class="text-gray-600 p-2" id="mobile-menu-btn">
+                        <i data-lucide="menu" class="w-7 h-7"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu Dropdown -->
         <div class="md:hidden hidden bg-white shadow-xl border-t border-gray-100 absolute w-full" id="mobile-menu">
-            <div class="flex flex-col px-6 py-4 space-y-3 font-medium">
+            <div class="flex flex-col px-6 py-6 space-y-4 font-medium text-lg">
                 <a href="#about" class="text-gray-600 hover:text-ocean-600 py-2 border-b border-gray-50">소개</a>
                 <a href="#social" class="text-gray-600 hover:text-ocean-600 py-2 border-b border-gray-50">사회교과</a>
                 <a href="#coding" class="text-gray-600 hover:text-ocean-600 py-2 border-b border-gray-50">코딩동아리</a>
@@ -102,7 +102,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-gradient-to-br from-ocean-50 via-white to-ocean-100">
+    <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 overflow-hidden bg-gradient-to-br from-ocean-50 via-white to-ocean-100">
         <div class="absolute inset-0 hero-pattern"></div>
         <div class="max-w-6xl mx-auto px-4 relative z-10">
             <div class="flex flex-col md:flex-row items-center gap-12">
@@ -357,10 +357,10 @@
     <footer class="bg-gray-900 text-gray-400 py-10 text-center text-sm border-t border-gray-800">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center justify-center gap-3 mb-4">
-                <div class="h-8 w-auto">
+                <div class="h-10 w-auto">
                     <img src="./images/logo.png" alt="Logo" class="h-full w-auto object-contain" onerror="this.style.display='none'">
                 </div>
-                <span class="font-bold text-gray-200 text-xl tracking-tight">오션정보교실</span>
+                <span class="font-bold text-gray-200 text-xl tracking-tight italic">OCEAN INFO CLASS</span>
             </div>
             <p class="mb-1">부산광역시 오션중학교 | 사회과 & 정보/AI 동아리 지도교사 OOO</p>
             <p class="text-gray-600">© 2026 Ocean Middle School Social & Coding. All rights reserved.</p>
